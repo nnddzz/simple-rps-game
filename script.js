@@ -31,8 +31,11 @@ function getHumanChoice(){
 function playRound(humanChoice, computerChoice){
   if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper" && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper"){
     humanScore++;
-    console.log(`You Win! $(humanChoice) beats $(computerChoice)`);
-  } else {
+    console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+  } else if (humanChoice == computerChoice){
+    console.log(`It's a tie! ${humanChoice} vs ${computerChoice}`);
+  }
+    else {
     compterScore++;
     console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
   }
