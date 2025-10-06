@@ -1,6 +1,3 @@
-let humanScore = 0;
-let compterScore = 0;
-
 // function to get random number
 function getRandomInt(maxNum){
   return Math.floor(Math.random() * maxNum);
@@ -27,21 +24,36 @@ function getHumanChoice(){
   return prompt("Please type one of the choices : rock, paper, scissors").toLowerCase();
 }
 
-// function to play single round
-function playRound(humanChoice, computerChoice){
-  if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper" && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper"){
-    humanScore++;
-    console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-  } else if (humanChoice == computerChoice){
-    console.log(`It's a tie! ${humanChoice} vs ${computerChoice}`);
+// function to play 5 rounds
+function playGame(){
+  let humanScore = 0;
+  let computerScore = 0;
+
+  // function to play single round
+  function playRound(humanChoice, computerChoice){
+    if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper" && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper"){
+      humanScore++;
+      console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
+    } else if (humanChoice == computerChoice){
+      console.log(`It's a tie! ${humanChoice} vs ${computerChoice}`);
+    }
+      else {
+      computerScore++;
+      console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+    }
   }
-    else {
-    compterScore++;
-    console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+
+  playRound(getHumanChoice(), getComputerChoice());
+  playRound(getHumanChoice(), getComputerChoice());
+  playRound(getHumanChoice(), getComputerChoice());
+
+  if (humanScore > computerScore){
+    console.log("You Win!")
+  } else if (humanScore === computerScore) {
+    console.log("It's Draw")
+  } else {
+    console.log("You Lose...")
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
