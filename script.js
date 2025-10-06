@@ -24,6 +24,21 @@ function getComputerChoice(){
 
 // function to get human choice
 function getHumanChoice(){
-  return prompt("Please type one of the choices : rock, paper, scissors");
+  return prompt("Please type one of the choices : rock, paper, scissors").toLowerCase();
 }
 
+// function to play single round
+function playRound(humanChoice, computerChoice){
+  if (humanChoice == "rock" && computerChoice == "scissors" || humanChoice == "paper" && computerChoice == "rock" || humanChoice == "scissors" && computerChoice == "paper"){
+    humanScore++;
+    console.log(`You Win! $(humanChoice) beats $(computerChoice)`);
+  } else {
+    compterScore++;
+    console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
