@@ -1,3 +1,6 @@
+let humanScore = 0;
+let compterScore = 0;
+
 // function to get random number
 function getRandomInt(maxNum){
   return Math.floor(Math.random() * maxNum);
