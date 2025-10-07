@@ -50,11 +50,15 @@ function playGame(){
   playRound(getHumanChoice(), getComputerChoice());
 
   if (humanScore > computerScore){
-    console.log("You Win!")
+    console.log(`Congratulation you win the game! here is the scores:
+      You: ${humanScore}
+      Computer: ${computerScore}`)
   } else if (humanScore === computerScore) {
     console.log("It's Draw")
   } else {
-    console.log("You Lose...")
+    console.log(`Sorry you lose the game! here is the scores:
+      You: ${humanScore}
+      Computer: ${computerScore}`)
   }
 }
 
